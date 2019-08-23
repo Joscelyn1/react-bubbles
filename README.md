@@ -29,9 +29,20 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+One way to authenticate a user is with client-side authentication. The server gives the user a token, which is string of code with some information in it about when it expires and what it authenticates. The user saves this token locally in a cookie or in local storage. Then when the user goes to a site the site checks the user's token and if it matches the site lets the user in.
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+      Any private data needs to be hidden behind a wall of some sort, such as a protected route.
 - [ ] Describe how web servers work.
+      A web server can either refer to a computer that stores code for a website or a program that runs on one of those computers.
+
+The way the computer works is it holds some data. Then when a user requests that data by going to the associated ip address, the computer sends it to the user which gets parsed by the user's browser into the web site.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+PUT is the "U" in CRUD
+DELETE is the "D" in CRUD
 
 ## Project Set Up
 
@@ -41,14 +52,14 @@ Follow these steps to set up and work on your project:
 - [x] Add PM as collaborator on Github.
 - [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
 - [x] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on this Branch, committing changes regularly.
+- [x] Implement the project on this Branch, committing changes regularly.
 - [x] Push commits: git push origin `<firstName-lastName>`.
-- [ ] **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-- [ ] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-- [ ] **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:5000`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] **LOOK** at your `client` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-- [ ] **cd** into `client` and run `yarn install or npm install` to retrieve the client side dependencies.
-- [ ] **RUN** `yarn start or npm start` to fire up your React application.
+- [x] **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+- [x] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+- [x] **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:5000`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+- [x] **LOOK** at your `client` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+- [x] **cd** into `client` and run `yarn install or npm install` to retrieve the client side dependencies.
+- [x] **RUN** `yarn start or npm start` to fire up your React application.
 
 Follow these steps for completing your project:
 
@@ -72,8 +83,8 @@ Build a login form to authenticate your users.
 ### Stage 2 - Consuming the API
 
 - [x] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
-- [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
+- [x] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 ### API Documentation
 
