@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth.js';
-
+import { Form, FormInput } from 'shards-react';
 const initialColor = {
   color: '',
   code: { hex: '' }
@@ -46,6 +46,31 @@ const ColorList = ({ colors, updateColors }) => {
         updateColors(res.data);
       })
       .catch(err => console.log(err.response));
+  };
+
+  const [newColor, setNewColor] = useState({
+    color: '',
+    code: { hex: '' },
+    id: Date.now()
+  });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    axiosWithAuth()
+      .post('http://localhost:5000/api/colors', newColor)
+      .then(res => {
+        getColors();
+      })
+      .catch(err => console.log(err.response));
+  };
+
+  const changeHandler = e => {
+    setNewColor({ ...newColor, [e.target.name]: e.target.value });
+  };
+
+  const codeChangeHandler = e => {
+    setNewColor({ ...newColor, code: { hex: e.target.value } });
   };
 
   return (
@@ -99,6 +124,26 @@ const ColorList = ({ colors, updateColors }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+
+      <Form onSubmit={handleSubmit}>
+        <FormInput
+          type="text"
+          name="code"
+          onChange={codeChangeHandler}
+          placeholder="#c3cde6"
+          value={newColor.code.hex}
+        />
+
+        <FormInput
+          type="text"
+          name="color"
+          onChange={changeHandler}
+          placeholder="periwinkle blue"
+          value={newColor.color}
+        />
+
+        <button type="submit">Add Color</button>
+      </Form>
     </div>
   );
 };
